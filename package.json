@@ -24,8 +24,8 @@
     "react-swipeable-views": "^0.7.11"
   },
   "scripts": {
-    "server": "node ./server/server.js",
-    "start": "react-scripts start",
+    "server": "react-scripts start",
+    "start": "node ./server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
