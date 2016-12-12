@@ -53,7 +53,7 @@ app.use(function(err, req, res, next) {
 
 //throw a initial page or route
 app.get('/', function(req, res){
-	res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+	res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 module.exports = app;
