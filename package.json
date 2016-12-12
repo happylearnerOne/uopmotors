@@ -1,0 +1,33 @@
+{
+  "name": "UOPR",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.7.0"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "google-maps-react": "^1.0.19",
+    "material-auto-rotating-carousel": "^1.1.0",
+    "nodemailer": "^2.7.0",
+    "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.1",
+    "react-gmaps": "^1.5.0",
+    "react-google-maps-loader": "^2.0.1",
+    "react-motion": "^0.4.5",
+    "react-pure-render": "^1.0.2",
+    "react-responsive-carousel": "^3.0.21",
+    "react-swipeable-views": "^0.7.11"
+  },
+  "scripts": {
+    "server": "node ./server/server.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
