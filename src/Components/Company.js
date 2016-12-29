@@ -19,13 +19,13 @@ class Company extends Component {
 
 	render(){
 
-		const theWidth = window.screen.width;
+		let theWidth = window.screen.width;
 		// const theHeight = window.screen.availHeight;
 		// const theWidth = document.documentElement.clientWidth;
-		const theHeight = document.documentElement.clientHeight;
+		let theHeight = document.documentElement.clientHeight;
 		const divStyle = {
   			backgroundImage: 'url(images/background-img2.jpg)',
-  			width: theWidth,
+  			width: '100%',
   			height: theHeight,
 			backgroundRepeat: 'no-repeat',
             // backgroundAttachment: 'fixed',
@@ -36,7 +36,7 @@ class Company extends Component {
 		
 		return (
 			<div style={divStyle}>
-				<div style={{paddingTop: '45%'}}><center><RaisedButton label="We are not just a seller. We are a real designer and manufacturer." secondary={true} fullWidth={false} /></center></div>
+				<div style={{paddingTop: '45%'}}></div>
 			</div>
 		);
 
