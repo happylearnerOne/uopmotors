@@ -12,7 +12,11 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '9000');
+var port = 80;
+if(NODE_ENV!=production){
+  port = 9000;
+}
+
 app.set('port', port);
 
 console.log("server a");
