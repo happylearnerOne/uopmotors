@@ -8,6 +8,7 @@ import Company from './Components/Company';
 import Product from './Components/Product';
 import AboutUs from './Components/AboutUs';
 import ContactUs from './Components/ContactUs';
+import ProductLayoutMenu from './Components/ProductLayoutMenu';
 // import Footer from './Component/Footer.js';
 
 class Router extends Component {
@@ -17,7 +18,7 @@ class Router extends Component {
       <Router history={browserHistory}>
         <Route path="/" name="Home" component={Layout}>
           <IndexRoute component={Company}/>
-          <Route name="product" path="/product" component={Product} />
+          <Route name="product" path="/product" component={ProductLayoutMenu} />
           <Route name="company" path="/company" component={Company} />
           <Route name="aboutus" path="/aboutus" component={AboutUs} />
           <Route name="contactus" path="/contactus" component={ContactUs} />

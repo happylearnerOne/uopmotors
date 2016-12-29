@@ -31,7 +31,7 @@ class MenuHeader extends Component {
 						}
 						>
 						<MenuItem primaryText="About Us" containerElement={<Link to="/aboutus" />} />
-						<MenuItem primaryText="Products" containerElement={<Link to="/product" />} />
+						<MenuItem primaryText="Products" containerElement={<Link to="/productMenu" />} />
 						{/*<MenuItem primaryText="Contact Us" containerElement={<Link to="/contactus" />} />*/}
 					</IconMenu>
 				</ToolbarGroup>

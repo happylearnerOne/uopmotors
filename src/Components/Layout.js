@@ -28,6 +28,7 @@ class Layout extends Component {
 
 	render(){
 		if(this.state.width >= 768){
+			console.log("tab header");
 			return (
 				<div>
 					<TabHeader />
@@ -35,6 +36,7 @@ class Layout extends Component {
 				</div>
 			)
 		} else {
+			console.log("menu header");
 			return (
 				<div>
 					<MenuHeader/>
