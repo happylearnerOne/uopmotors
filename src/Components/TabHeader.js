@@ -34,7 +34,7 @@ class TabHeader extends Component {
 
 		return(
 			<Tabs value={this.state.value} onChange={this.handleTabChange}>
-				<Tab label="龍成精密有限公司" value="Company">
+				<Tab label="UOP Motors" value="Company">
 		            <Company />
 				</Tab>
 				<Tab label="About Us" value="AboutUs">

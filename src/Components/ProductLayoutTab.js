@@ -126,16 +126,16 @@ class ProductLayoutTab extends Component {
         <br/>
         <Row>
           <Col xs={3} md={2}>
-            <Checkbox label="經典老車" style={styles.checkbox} value="ClassMotor" checked={this.state.isClassMotor} onCheck={this.handleChange}/>
+            <Checkbox label="經典老車(Classic Motors)" style={styles.checkbox} value="ClassMotor" checked={this.state.isClassMotor} onCheck={this.handleChange}/>
           </Col>
           <Col xs={3} md={2}>
-            <Checkbox label="摩托車" style={styles.checkbox} value="Scooter" checked={this.state.isScooter} onCheck={this.handleChange}/>
+            <Checkbox label="摩托車(Scooter)" style={styles.checkbox} value="Scooter" checked={this.state.isScooter} onCheck={this.handleChange}/>
           </Col>
           <Col xs={3} md={2}>
-            <Checkbox label="重機" style={styles.checkbox} value="Motorcycle" checked={this.state.isMotorcycle} onCheck={this.handleChange}/>
+            <Checkbox label="重機(Motorcycle)" style={styles.checkbox} value="Motorcycle" checked={this.state.isMotorcycle} onCheck={this.handleChange}/>
           </Col>
           <Col xs={3} md={2}>
-            <Checkbox label="其他" style={styles.checkbox} value="Others" checked={this.state.isOthers} onCheck={this.handleChange}/>
+            <Checkbox label="其他(Others)" style={styles.checkbox} value="Others" checked={this.state.isOthers} onCheck={this.handleChange}/>
           </Col>
           <Col xs={5} md={4}>&nbsp;</Col>
         </Row>

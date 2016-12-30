@@ -7,6 +7,8 @@ import MenuItem from 'material-ui/MenuItem';
 // import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import { Link } from 'react-router';
+import Divider from 'material-ui/Divider';
+
 
 
 class MenuHeader extends Component {
@@ -19,7 +21,7 @@ class MenuHeader extends Component {
 		return(
 			<Toolbar className="toolbar-text">
 				<ToolbarGroup>
-					<ToolbarTitle text="龍成精密有限公司" />
+					<ToolbarTitle text="UOP Motors" />
 					<FontIcon className="muidocs-icon-custom-sort" />
 					<ToolbarSeparator />
 
@@ -30,9 +32,16 @@ class MenuHeader extends Component {
 						</IconButton>
 						}
 						>
-						<MenuItem primaryText="About Us" containerElement={<Link to="/aboutus" />} />
-						<MenuItem primaryText="Products" containerElement={<Link to="/productMenu" />} />
-						{/*<MenuItem primaryText="Contact Us" containerElement={<Link to="/contactus" />} />*/}
+						<MenuItem primaryText="首頁&nbsp;Home" containerElement={<Link to="/" />} />
+						<MenuItem primaryText="關於我&nbsp;About Us" containerElement={<Link to="/aboutus" />} />
+						<Divider inset={true} />
+						<MenuItem primaryText="產品&nbsp;Products" containerElement={<Link to="/productMenu" />} />
+						<MenuItem primaryText="&nbsp;&nbsp;經典老車&nbsp;Classic Motors" containerElement={<Link to="/classic" />} />
+						<MenuItem primaryText="&nbsp;&nbsp;摩托車&nbsp;Scootors" containerElement={<Link to="/scootor" />} />
+						<MenuItem primaryText="&nbsp;&nbsp;重機&nbsp;Motorcycles" containerElement={<Link to="/motorcycle" />} />
+						<MenuItem primaryText="&nbsp;&nbsp;其他&nbsp;Others" containerElement={<Link to="/others" />} />
+						<Divider inset={true} />
+						<MenuItem primaryText="與我聯繫&nbsp;Contact Us" containerElement={<Link to="/contactus" />} />
 					</IconMenu>
 				</ToolbarGroup>
 			</Toolbar>
