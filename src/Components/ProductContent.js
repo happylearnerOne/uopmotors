@@ -13,12 +13,12 @@ class ProductContent extends Component {
 
 	render(){
 		const {prod} = this.props;
-		console.log("in product content render");
+		// console.log("in product content render");
 		// console.log(prod);
 		let vHeight = window.screen.height;
 		let vWidth = window.screen.width;
 
-		console.log(vHeight);
+		// console.log(vHeight);
 		const cardStyle = {
 			paddingTop: (vHeight/30),
 			paddingRight: (vWidth/30),

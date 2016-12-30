@@ -10,7 +10,8 @@ const myProduct =
 		"orderSeq" : "1",
 		"productImageUrl": "1.jpg",		
 		"catalog" : "Plastic-Cover/Covers",
-		"imageDirectory" : "styles/image/product/plastic-cover/zuma-125-upper-cover/",		
+		"classfied" : "ClassMotor",	
+		"imageDirectory" : "styles/image/product/plastic-cover/zuma-125-upper-cover/",	
 		"productRelativeImageUrl" : [
 			{
 				"imageNo" : "1",
@@ -66,6 +67,7 @@ const myProduct =
 		"bestSellerTW" : "Y", 		
 		"orderSeq" : "1",	
 		"catalog" : "Plastic-Cover/Covers",
+		"classfied" : "ClassMotor",	
 		"imageDirectory" : "styles/image/product/plastic-cover/bws-black-headlight-cover/",	
 		"productRelativeImageUrl" : [
 			{
@@ -136,6 +138,7 @@ const myProduct =
 		"nameImageUrl": "styles/image/product/plastic-cover/bws-transparent-headlight-cover/product.jpg",
 		"productImageUrl": "YAMAHA BWS BW'S BWS X ZUMA BWS 125 BW'S X 125 大B 美規小盾牌+小燈-1.jpg",		
 		"catalog" : "Plastic-Cover/Covers",
+		"classfied" : "Scooter",	
 		"bestSellerUS" : "Y",
 		"bestSellerTW" : "Y", 
 		"orderSeq" : "1",			
@@ -212,6 +215,7 @@ const myProduct =
 		"bestSellerTW" : "Y", 	
 		"orderSeq" : "1",		
 		"catalog" : "Plastic-Cover/Covers",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/plastic-cover/cooling-fan-cover-w-changeable-bedge/",
 		"productRelativeImageUrl" : [
 			{
@@ -271,6 +275,7 @@ const myProduct =
 		"bestSellerTW" : "N", 	
 		"orderSeq" : "1",		
 		"catalog" : "Plastic-Cover/Covers",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/plastic-cover/cooling-fan-cover-bedge/",
 		"productRelativeImageUrl" : [
 			{
@@ -324,6 +329,7 @@ const myProduct =
 		"bestSellerTW" : "N", 	
 		"orderSeq" : "1",			
 		"catalog" : "Plastic-Cover/Covers",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/plastic-cover/rear-fender-w-aluminum-frame/",
 		"productRelativeImageUrl" : [
 			{
@@ -413,6 +419,7 @@ const myProduct =
 		"bestSellerTW" : "N", 	
 		"orderSeq" : "1",				
 		"catalog" : "Carbon/Chameleon/Covers",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/carbon-fiber-chameleon-paint/zuma-125-headlight-upper-cover-carbon-fiber/",
 		"productRelativeImageUrl" : [
 			{
@@ -477,6 +484,7 @@ const myProduct =
 		"bestSellerTW" : "N", 	
 		"orderSeq" : "1",				
 		"catalog" : "Carbon/Chameleon/Covers",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/carbon-fiber-chameleon-paint/zuma-125-headlight-upper-cover-chameleon/",
 		"productRelativeImageUrl" : [
 			{
@@ -530,6 +538,7 @@ const myProduct =
 		"nameImageUrl": "styles/image/product/engine-parts/suzuki-v125-high-flow-cooling-fan/product.jpg",
 		"productImageUrl": "SUZUKI V125 ADDRESS YAMAHA ZUMA BWS CYGNUS GY6 PGO BUBU JBUBU HORTFORD Bumble Bee 150 KYMCO RACING MANY VJR SYM JET cooling fan 風扇-3.jpg",		
 		"catalog" : "Engine-Parts",
+		"classfied" : "Others",	
 		"bestSellerUS" : "Y",
 		"bestSellerTW" : "Y", 	
 		"orderSeq" : "1",	
@@ -580,6 +589,7 @@ const myProduct =
 		"bestSellerTW" : "Y", 	
 		"orderSeq" : "1",		
 		"catalog" : "Transmission-Parts",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/transmission-parts/t-max-530-sprocket-kit/",
 		"productRelativeImageUrl" : [
 			{
@@ -620,6 +630,7 @@ const myProduct =
 		"bestSellerTW" : "N", 	
 		"orderSeq" : "1",			
 		"catalog" : "Suspension-Parts",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/suspension-parts/zuma-bws-125-upsid-down-front-frok-double-brake-disk-system/",
 		"productRelativeImageUrl" : [
 			{
@@ -666,6 +677,7 @@ const myProduct =
 		"bestSellerTW" : "N", 	
 		"orderSeq" : "1",				
 		"catalog" : "Light/Others",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/light/others/fan-cover-cob-halo-light/",
 		"productRelativeImageUrl" : [
 			{
@@ -741,6 +753,7 @@ const myProduct =
 		"nameImageUrl": "styles/image/product/transmission-parts/majesty-smax-1DK-transmission-cover-transparent/product.jpg",
 		"productImageUrl": "uopmotors Majesty S Smax 1DK Transmission Cover Smax 傳動蓋 -1.jpg",		
 		"catalog" : "Transmission-Parts",
+		"classfied" : "Others",	
 		"bestSellerUS" : "Y",
 		"bestSellerTW" : "Y", 		
 		"orderSeq" : "1",				
@@ -797,6 +810,7 @@ const myProduct =
 		"nameImageUrl": "styles/image/product/transmission-parts/majesty-smax-1DK-transmission-cover-black/product.jpg",
 		"productImageUrl": "uopmotors Majesty S  Smax 1DK black Transmission Cover-1.jpg",		
 		"catalog" : "Transmission-Parts",
+		"classfied" : "Others",	
 		"bestSellerUS" : "Y",
 		"bestSellerTW" : "Y", 	
 		"orderSeq" : "1",				
@@ -853,6 +867,7 @@ const myProduct =
 		"orderSeq" : "1",
 		"productImageUrl": "1.jpg",		
 		"catalog" : "Special-Customized-CNC-Parts",
+		"classfied" : "Others",	
 		"imageDirectory" : "styles/image/product/special-cnc-parts/",		
 		"productRelativeImageUrl" : [
 			{
@@ -904,6 +919,7 @@ const myProduct =
 		"nameImageUrl": "styles/image/product/engine-parts/yamaha-extra-performance-cooling-fan/product.jpg",
 		"productImageUrl": "YAMAHA ZUMA BWS CYGNUS GY6 SUZUKI V125 PGO BUBU JBUBU HORTFORD Bumble Bee 150 KYMCO RACING MANY VJR SYM JET cooling fan 風扇-5.jpg",		
 		"catalog" : "Engine-Parts",
+		"classfied" : "Others",	
 		"bestSellerUS" : "Y",
 		"bestSellerTW" : "Y", 
 		"orderSeq" : "1",			
@@ -971,6 +987,7 @@ const myProduct =
 		"nameImageUrl": "styles/image/product/engine-parts/gy6-engine-extra-performance-cooling-fan/product.jpg",
 		"productImageUrl": "YAMAHA ZUMA BWS CYGNUS GY6 SUZUKI V125 PGO BUBU JBUBU HORTFORD Bumble Bee 150 KYMCO RACING MANY VJR SYM JET cooling fan 風扇-chrome rainb.jpg",		
 		"catalog" : "Engine-Parts",
+		"classfied" : "Others",	
 		"bestSellerUS" : "Y",
 		"bestSellerTW" : "Y", 
 		"orderSeq" : "1",			
@@ -1047,6 +1064,7 @@ const myProduct =
 		"nameImageUrl": "styles/image/product/engine-parts/dio-many-vjr-extra-performance-cooling-fan/product.jpg",
 		"productImageUrl": "Honda Dio Kymco many vjr rx irx extra high flow cooling fan -2.jpg",		
 		"catalog" : "Engine-Parts",
+		"classfied" : "Others",	
 		"bestSellerUS" : "Y",
 		"bestSellerTW" : "Y", 
 		"orderSeq" : "1",			
