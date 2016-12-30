@@ -17,7 +17,7 @@ var port = normalizePort(process.env.PORT || '80');
 
 app.set('port', port);
 
-console.log("server a");
+// console.log("server a");
 
 /**
  * Create HTTP server.
@@ -32,7 +32,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-console.log("server b");
+// console.log("server b");
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -40,7 +40,7 @@ console.log("server b");
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
-  console.log("normalizePort");
+  // console.log("normalizePort");
 
   if (isNaN(port)) {
     // named pipe
@@ -60,7 +60,7 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  console.log("onError");
+  // console.log("onError");
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -89,7 +89,7 @@ function onError(error) {
  */
 
 function onListening() {
-  console.log("onListening");
+  // console.log("onListening");
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

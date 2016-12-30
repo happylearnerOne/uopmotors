@@ -3,7 +3,9 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import Company from './Company';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
-import ProductLayout from './ProductLayout';
+// import ProductLayout from './ProductLayout';
+// import ProductLayoutMenu from './ProductLayoutMenu';
+import ProductLayoutTab from './ProductLayoutTab';
 
 // import {GridList, GridTile} from 'material-ui/GridList';
 // import IconButton from 'material-ui/IconButton';
@@ -39,7 +41,7 @@ class TabHeader extends Component {
 					<AboutUs />
 				</Tab>
 				<Tab label="Products" value="Products">
-					<ProductLayout />
+					<ProductLayoutTab />
 				</Tab>
 				<Tab label="Contact Us" value="ContactUs">
 					<ContactUs/>

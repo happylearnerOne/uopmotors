@@ -18,10 +18,12 @@ class ProductContent extends Component {
 		let vHeight = window.screen.height;
 		let vWidth = window.screen.width;
 
+		console.log(vHeight);
 		const cardStyle = {
 			paddingTop: (vHeight/30),
 			paddingRight: (vWidth/30),
-			paddingLeft: (vWidth/30)
+			paddingLeft: (vWidth/30),
+			height: '650px'
 		}
 		return (
 			<Card style={cardStyle}>
