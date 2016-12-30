@@ -16,12 +16,13 @@ class ProductLayoutTab extends Component {
       Motorcycle: [],
       OtherProds: [],
       displayProds: myProduct,
-      isClassMoter: true,
+      isClassMotor: true,
       isScooter: true,
       isMotorcycle: true,
       isOthers: true
     };
 
+    console.log(this.state.products);
     this.handleChange = this.handleChange.bind(this);
     this.filterProd = this.filterProd.bind(this);
 	}	
@@ -41,7 +42,7 @@ class ProductLayoutTab extends Component {
 
   handleChange = (event) => {
     console.log(event.target.value);
-    let isClassMoter = this.state.isClassMoter;
+    let isClassMotor = this.state.isClassMotor;
     let isMotorcycle = this.state.isMotorcycle;
     let isScooter = this.state.isScooter;
     let isOthers = this.state.isOthers;
@@ -49,8 +50,8 @@ class ProductLayoutTab extends Component {
     switch(event.target.value){
       case "ClassMotor":
         console.log(this.state.ClassMotor);
-        isClassMoter = !isClassMoter;
-        this.setState({isClassMoter: isClassMoter});
+        isClassMotor = !isClassMotor;
+        this.setState({isClassMotor: isClassMotor});
         break;
       case "Motorcycle":
         console.log(this.state.Motorcycle);
@@ -72,23 +73,24 @@ class ProductLayoutTab extends Component {
     }
 
     let finalProds = [];
+    let v1 = [];
+    let v2 = [];
+    let v3 = [];
+    let v4 = [];
     
-    if(isClassMoter){
-      Object.assign(finalProds, this.state.ClassMotor);
-      //finalProds = finalProds.push(this.state.ClassMotor);
+    if(isClassMotor){
+      finalProds = finalProds.concat(this.state.ClassMotor);
     }
     if(isScooter){
-      Object.assign(finalProds, this.state.Scooter);
-      //finalProds = finalProds.push(this.state.Scooter);
+      finalProds = finalProds.concat(this.state.Scooter);
     }
     if(isMotorcycle){
-      Object.assign(finalProds, this.state.Motorcycle);
-      //finalProds = finalProds.push(this.state.Motorcycle);
+      finalProds = finalProds.concat(this.state.Motorcycle);
     }
     if(isOthers){
-      Object.assign(finalProds, this.state.OtherProds);
-      //finalProds = finalProds.push(this.state.OtherProds);
+      finalProds = finalProds.concat(this.state.OtherProds);
     }
+
     
     this.setState({displayProds: finalProds});
   }
@@ -124,7 +126,7 @@ class ProductLayoutTab extends Component {
         <br/>
         <Row>
           <Col xs={3} md={2}>
-            <Checkbox label="經典老車" style={styles.checkbox} value="ClassMotor" checked={this.state.isClassMoter} onCheck={this.handleChange}/>
+            <Checkbox label="經典老車" style={styles.checkbox} value="ClassMotor" checked={this.state.isClassMotor} onCheck={this.handleChange}/>
           </Col>
           <Col xs={3} md={2}>
             <Checkbox label="摩托車" style={styles.checkbox} value="Scooter" checked={this.state.isScooter} onCheck={this.handleChange}/>

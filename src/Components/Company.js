@@ -24,7 +24,7 @@ class Company extends Component {
 		// const theWidth = document.documentElement.clientWidth;
 		let theHeight = document.documentElement.clientHeight;
 		const divStyle = {
-  			backgroundImage: 'url(images/background-img2.jpg)',
+  			backgroundImage: 'url(images/background-img10.jpg)',
   			width: '100%',
   			height: theHeight,
 			backgroundRepeat: 'no-repeat',
