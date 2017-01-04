@@ -37,13 +37,13 @@ class TabHeader extends Component {
 				<Tab label="UOP Motors" value="Company">
 		            <Company />
 				</Tab>
-				<Tab label="About Us" value="AboutUs">
+				<Tab label="關於我們&nbsp;About Us" value="AboutUs">
 					<AboutUs />
 				</Tab>
-				<Tab label="Products" value="Products">
+				<Tab label="產品&nbsp;Products" value="Products">
 					<ProductLayoutTab />
 				</Tab>
-				<Tab label="Contact Us" value="ContactUs">
+				<Tab label="與我們聯繫&nbsp;Contact Us" value="ContactUs">
 					<ContactUs/>
 				</Tab>								
 			</Tabs>

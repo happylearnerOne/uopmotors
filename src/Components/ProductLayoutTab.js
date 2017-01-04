@@ -109,7 +109,7 @@ class ProductLayoutTab extends Component {
 	render(){	
     let vHeight = window.screen.height;
     const colStyle = {
-      paddingTop: (vHeight/30)
+      paddingTop: (vHeight/100)
     }	
 
     const styles = {
@@ -125,21 +125,21 @@ class ProductLayoutTab extends Component {
       <Grid>
         <br/>
         <Row>
-          <Col xs={3} md={2}>
+          <Col xs={4} md={3}>
             <Checkbox label="經典老車(Classic Motors)" style={styles.checkbox} value="ClassMotor" checked={this.state.isClassMotor} onCheck={this.handleChange}/>
           </Col>
-          <Col xs={3} md={2}>
+          <Col xs={4} md={3}>
             <Checkbox label="摩托車(Scooter)" style={styles.checkbox} value="Scooter" checked={this.state.isScooter} onCheck={this.handleChange}/>
           </Col>
-          <Col xs={3} md={2}>
+          <Col xs={4} md={3}>
             <Checkbox label="重機(Motorcycle)" style={styles.checkbox} value="Motorcycle" checked={this.state.isMotorcycle} onCheck={this.handleChange}/>
           </Col>
-          <Col xs={3} md={2}>
+          <Col xs={4} md={3}>
             <Checkbox label="其他(Others)" style={styles.checkbox} value="Others" checked={this.state.isOthers} onCheck={this.handleChange}/>
           </Col>
-          <Col xs={5} md={4}>&nbsp;</Col>
+          <Col xs={2} md={0}>&nbsp;</Col>
         </Row>
-        <Row className="show-grid">
+        <Row>
           {this.state.displayProds.map((prod, index) => (
             <Col xs={9} md={6} style={colStyle}>
                 <ProductContent prod={prod}/>

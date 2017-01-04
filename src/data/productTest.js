@@ -67,7 +67,8 @@ const myProduct =
 						"m_ch" : "BW’S 125 改美規雙大燈"
 					},
 					{
-						"m" : "BWS 125"						
+						"m" : "BWS 125",
+						"m_ch" : "BWS 125"						
 					}
 				],
 				"color" : [
