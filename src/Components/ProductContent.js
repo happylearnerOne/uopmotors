@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import { Image } from 'react-bootstrap';
+import { Image, Carousel } from 'react-bootstrap';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
@@ -17,6 +17,7 @@ class ProductContent extends Component {
 			dialogOpen: false
 		}
 		this.renderModelContent = this.renderModelContent.bind(this);
+		this.renderImageCarouselItem = this.renderImageCarouselItem.bind(this);
 		// console.log(props);
 	}
 
@@ -40,13 +41,22 @@ class ProductContent extends Component {
   		
   	}
 
+  	renderImageCarouselItem = (dir, img, index, prodName) => {
+  		return (
+  			<Carousel.Item>
+      			<Image src={dir + img.imageUrl} alt={prodName} responsive />
+      		</Carousel.Item>
+  		);
+  	}
+
 	render(){
 		const {prod} = this.props;
 		const {model} = this.props.prod.items[0];
+		const {imgList} = this.props.prod.productRelativeImageUrl;
 
-		
-		console.log("the model=");
-		console.log(model);
+		console.log(prod);
+		console.log("the imgList=");
+		console.log(imgList);
 		// console.log("in product content render");
 		// console.log(prod);
 		let vHeight = window.screen.height;
@@ -80,7 +90,12 @@ class ProductContent extends Component {
 			<div>
 			<Card style={cardStyle}>
 				<CardMedia>
-					<Image src={prod.imageDirectory + prod.productRelativeImageUrl[0].imageUrl} alt={prod.name} responsive />
+					<Carousel wrap={false} interval={90000000}>
+						{this.props.prod.productRelativeImageUrl.map((img, index) => (
+							this.renderImageCarouselItem(prod.imageDirectory, img, index, prod.name) 
+						))}
+  					</Carousel>
+					{/*<Image src={prod.imageDirectory + prod.productRelativeImageUrl[0].imageUrl} alt={prod.name} responsive /> */}
     			</CardMedia>
     			<CardTitle title={prod.name} subtitle={prod.name_ch} />
 			    <CardText>
