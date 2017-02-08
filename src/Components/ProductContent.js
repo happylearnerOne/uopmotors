@@ -5,6 +5,9 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import '../App.css';
+
+// import { browserHistory, push } from 'react-router';
 
 
 
@@ -18,11 +21,15 @@ class ProductContent extends Component {
 		}
 		this.renderModelContent = this.renderModelContent.bind(this);
 		this.renderImageCarouselItem = this.renderImageCarouselItem.bind(this);
+		this.renderDescriptionContent = this.renderDescriptionContent.bind(this);
+		this.renderTableRowContent = this.renderTableRowContent.bind(this);
 		// console.log(props);
 	}
 
 	handleDialogOpen = () => {
     	this.setState({dialogOpen: true});
+    	// browserHistory.push("/contactus");
+
   	};
   	handleDialogClose = () => {
     	this.setState({dialogOpen: false});
@@ -38,27 +45,45 @@ class ProductContent extends Component {
   				<div>{theModel.m_ch}<br/></div>
   			);
   		}
-  		
+  	}
+  	renderDescriptionContent = (theDesc) => {
+  		console.log(theDesc);
+  		return (
+  			<div>{theDesc.desc_content}<br/></div> 
+  		);
   	}
 
   	renderImageCarouselItem = (dir, img, index, prodName) => {
   		return (
   			<Carousel.Item>
-      			<Image src={dir + img.imageUrl} alt={prodName} responsive />
+      			<Image src={dir + img.imageUrl} alt={img.imageHint} responsive />
+      			<Carousel.Caption>
+        			<p>{img.imageHint}</p>
+      			</Carousel.Caption>
       		</Carousel.Item>
+  		);
+  	}
+
+  	renderTableRowContent = (priceObj) => {
+  		let thePrice = priceObj.wholesale_price;
+  		return (
+			<TableRow>
+				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{priceObj.item} 單價</TableRowColumn>
+				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{thePrice[0].unitPrice}</TableRowColumn>
+				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{thePrice[1].unitPrice}</TableRowColumn>
+				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{thePrice[2].unitPrice}</TableRowColumn>
+				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{thePrice[3].unitPrice}</TableRowColumn>
+			</TableRow>  			
   		);
   	}
 
 	render(){
 		const {prod} = this.props;
-		const {model} = this.props.prod.items[0];
-		const {imgList} = this.props.prod.productRelativeImageUrl;
+		// const {description} = this.props.prod.description;
+		// const {model} = this.props.prod.items[0];
 
-		console.log(prod);
-		console.log("the imgList=");
-		console.log(imgList);
 		// console.log("in product content render");
-		// console.log(prod);
+		// console.log(description);
 		let vHeight = window.screen.height;
 		let vWidth = window.screen.width;
 
@@ -90,90 +115,94 @@ class ProductContent extends Component {
 			<div>
 			<Card style={cardStyle}>
 				<CardMedia>
-					<Carousel wrap={false} interval={90000000}>
+					<Carousel wrap={true} interval={0} bsClass="carousel">
 						{this.props.prod.productRelativeImageUrl.map((img, index) => (
 							this.renderImageCarouselItem(prod.imageDirectory, img, index, prod.name) 
 						))}
   					</Carousel>
 					{/*<Image src={prod.imageDirectory + prod.productRelativeImageUrl[0].imageUrl} alt={prod.name} responsive /> */}
     			</CardMedia>
-    			<CardTitle title={prod.name} subtitle={prod.name_ch} />
+    			<CardTitle title={prod.name_ch} />
 			    <CardText>
-			    	
 			    	<Table selectable={false}>
 			    		<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-			    			
 				    		<TableRow>
 				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>適用車款</TableHeaderColumn>
-				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>Suitable Model</TableHeaderColumn>
-				    			{/*
-				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>購買數量<br/>(MPQ.)<br/>組/Set</TableHeaderColumn>
-				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[0].qty}</TableHeaderColumn>
-				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[1].qty}</TableHeaderColumn>
-				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[2].qty}</TableHeaderColumn>
-				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[3].qty}</TableHeaderColumn>
-				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[4].qty}</TableHeaderColumn>
-				    			*/}
 				    		</TableRow>
-
 			    		</TableHeader>
 			    		<TableBody displayRowCheckbox={false}>
 			    			<TableRow>
 			    				<TableRowColumn style={tdStyle}>
+			    					{prod.suitable_model}
+			    					{/* 
 									{model.map((theModel, index) => (
 										this.renderModelContent(theModel, "ch")
 									))}
+									*/}
 			    				</TableRowColumn>
+			    				{/*
 			    				<TableRowColumn style={tdStyle}>
 			    					{model.map((theModel, index) => (
 										this.renderModelContent(theModel, "en")
 									))}
 			    				</TableRowColumn>
-			    				{/*
-			    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>單價<br/>(U/P)</TableRowColumn>
-			    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[0].unitPrice}</TableRowColumn>
-			    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[1].unitPrice}</TableRowColumn>
-			    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[2].unitPrice}</TableRowColumn>
-			    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[3].unitPrice}</TableRowColumn>
-			    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[4].unitPrice}</TableRowColumn>
 			    				*/}
 			    			</TableRow>
 			    		</TableBody>
 			    	</Table>
+			    	<Table selectable={false}>
+			    		<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+				    		<TableRow>
+				    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>說明</TableHeaderColumn>
+				    		</TableRow>
+			    		</TableHeader>
+			    		<TableBody displayRowCheckbox={false}>
+			    			<TableRow>
+			    				<TableRowColumn style={tdStyle}>
+									{prod.description.map((theDesc, index) => (
+										this.renderDescriptionContent(theDesc)
+									))}
+			    				</TableRowColumn>
+			    			</TableRow>
+			    		</TableBody>
+			    	</Table>
+			 
 			    	<br/>
 			    	<RaisedButton label="詳細內容 Details" onTouchTap={this.handleDialogOpen} />
 			    	
 			    </CardText>   
   			</Card>
 	        <Dialog
-	          title="詳細內容 Details"
+	          title="批發價"
 	          actions={actions}
 	          modal={true}
 	          contentStyle={dialogContentStyle} 
 	          open={this.state.dialogOpen}
 	        >
-	        	售價/批發價, 台幣計價, 不含運費: <br/>
-			    Retail/Wholesale price, charged in NTD, and shipping fee is not included: <br/>
-				<Table selectable={false}>
+	        	台幣計價, 不含運費: <br/>
+				<Table selectable={false} style={{width:'50%'}}>
 		    		<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
 			    		<TableRow>
-			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>購買數量<br/>(MPQ.)<br/>組/Set</TableHeaderColumn>
-			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[0].qty}</TableHeaderColumn>
-			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[1].qty}</TableHeaderColumn>
-			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[2].qty}</TableHeaderColumn>
-			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[3].qty}</TableHeaderColumn>
-			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[4].qty}</TableHeaderColumn>
+			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>購買組數</TableHeaderColumn>
+			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>10</TableHeaderColumn>
+			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>50</TableHeaderColumn>
+			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>100</TableHeaderColumn>
+			    			<TableHeaderColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>500</TableHeaderColumn>
 			    		</TableRow>
 		    		</TableHeader>
 		    		<TableBody displayRowCheckbox={false} >
+		    			{prod.price.map((priceObj, index)=>(
+		    				this.renderTableRowContent(priceObj)
+		    			))}
+		    			{/*
 		    			<TableRow>
-		    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>單價<br/>(U/P)</TableRowColumn>
+		    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>單價</TableRowColumn>
 		    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[0].unitPrice}</TableRowColumn>
 		    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[1].unitPrice}</TableRowColumn>
 		    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[2].unitPrice}</TableRowColumn>
 		    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[3].unitPrice}</TableRowColumn>
-		    				<TableRowColumn style={{paddingLeft:'6px', paddingRight:'6px'}}>{prod.price[4].unitPrice}</TableRowColumn>
 		    			</TableRow>
+		    		*/}
 		    		</TableBody>
 		    	</Table>
 

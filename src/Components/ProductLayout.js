@@ -14,7 +14,8 @@ import { Grid, Row, Col } from 'react-bootstrap';
 // import ToggleStar from 'material-ui/svg-icons/toggle/star';
 // import Subheader from 'material-ui/Subheader';
 // import Toggle from 'material-ui/Toggle';
-import myProduct from '../data/productTest';
+// import myProduct from '../data/productTest';
+import myProduct from '../data/productData';
 
 // import {GridList, GridTile} from 'material-ui/GridList';
 // import IconButton from 'material-ui/IconButton';

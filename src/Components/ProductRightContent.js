@@ -45,43 +45,20 @@ class ProductRightContent extends Component {
 			<Grid style={{width:'100%', paddingTop:(vHeight/20)}}>
 				<Row style={GridStyle}>
 				{this.props.data.map((prod, index) => (
-
-
-
-<Card>
-   
-    <CardMedia
-      overlay={<CardTitle title={prod.name} subtitle={prod.name_ch} />}
-    >
-      <Image src={prod.imageDirectory + prod.productRelativeImageUrl[0].imageUrl} alt={prod.name} responsive />
-    </CardMedia>
-    <CardTitle title="Product price: 100.99 (USD), 3000 (NTD) " subtitle="Shipping fee is not included." />
-    {/*
-    <CardText>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
-    <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
-    </CardActions>
-*/}
-  </Card>
-
-
-
+					<Card>
+					   
+					    <CardMedia
+					      overlay={<CardTitle title={prod.name_ch} />}
+					    >
+					      <Image src={prod.imageDirectory + prod.productRelativeImageUrl[0].imageUrl} alt={prod.productRelativeImageUrl[0].imageHint} responsive />
+					    </CardMedia>
+					    <CardTitle title="Product price: 100.99 (USD), 3000 (NTD) " subtitle="Shipping fee is not included." />
+					   
+					 </Card>
                 ))}
                 </Row>
 
 
-					{/*
-                	<Col xs={9} md={6}>
-                		<Image src={prod.imageDirectory + prod.productRelativeImageUrl[0].imageUrl} alt={prod.name} responsive /><br/>
-                		Price: 100.99 (USD), 3000 (NTD)
-                	</Col>
-                	*/} 
 
 			</Grid>
 		);

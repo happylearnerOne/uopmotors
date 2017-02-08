@@ -72,116 +72,119 @@ class ContactUs extends Component {
       width: '80%',
       height: '300px'
     }
-
-    return(
-      <div>
-        <center>
-          <Gmaps
-            width={mapStyle.width}
-            height={mapStyle.height}
-            lat={coords.lat}
-            lng={coords.lng}
-            zoom={12}
-            loadingMessage={'Loading google map now'}
-            params={{v: '3.exp', key: 'AIzaSyA0QyCpYLYV8okMd6M5DUWtiAvExGAj4QQ'}}
-            onMapCreated={this.onMapCreated}>
-            <Marker
-              lat={coords.lat}
-              lng={coords.lng}
-              draggable={true}
-              onDragEnd={this.onDragEnd} />
-            <InfoWindow
-              lat={coords.lat}
-              lng={coords.lng}
-              content={'龍成'}
-              onCloseClick={this.onCloseClick} />
-            <Circle
-              lat={coords.lat}
-              lng={coords.lng}
-              radius={100}
-              onClick={this.onClick} />
-          </Gmaps>
-        </center>
+    if(this.props.activeTab === "ContactUs"){
+      return(
         <div>
-        <Grid>
-          <Row>
-            <Col xs={18} md={12}>
-              <hr/>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={9} md={6}>
-              <Row>
-                <Col xs={18} md={12}>
-                  <h4>HOW TO CONTACT US</h4>
-                  <p>Please feel free to contacr us by Email, or leave your message if you have any question.</p>
-                  <p>It is always our great pleasure to serve you anytime!</p>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={18} md={12}>
-                  <h4>OFFICE</h4>
-                  <p>No.68-23, Aly.254, Ln.222, Sanshu Rd.,Sanxia Dist, New Taipei City 237, Taiwan(R.O.C.)</p>  
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={18} md={12}>
-                  <h4>CONTACT INFO</h4>
-                  <p>Tel: +886-2-26718169</p>
-                  <p>Fax: +886-2-26728519</p>
-                  <p>Email: <a href="maito:uop168@gmail.com">uop168@gmail.com</a></p>
-                </Col>
-              </Row>
-            </Col>
-            <Col xs={9} md={6}>
-              <h4>LEAVE YOUR MESSAGE</h4>
-              {/*<form role="form" novalidate name="emailForm">*/}
-              <form onSubmit={this.handleSubmit}>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroup.Addon>
-                      <Glyphicon glyph="user" />
-                    </InputGroup.Addon>
-                    <FormControl type="text" value={this.state.name} placeholder="Your name" onChange={(event, itemName) => this.handleFormChange(event, 'fullName')}/>
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroup.Addon>
-                      <Glyphicon glyph="envelope" />
-                    </InputGroup.Addon>
-                    <FormControl type="text" value={this.state.mailto} placeholder="Your email" onChange={(event, itemName) => this.handleFormChange(event, 'email')}/>
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroup.Addon>
-                      <Glyphicon glyph="pencil" />
-                    </InputGroup.Addon>
-                    <FormControl type="text" value={this.state.subject} placeholder="Subjects" onChange={(event, itemName) => this.handleFormChange(event, 'subject')}/>
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroup.Addon>
-                      <Glyphicon glyph="edit" />
-                    </InputGroup.Addon>
-                    <FormControl componentClass="textarea" value={this.state.content} placeholder="Your message" style={{height:'150px'}} onChange={(event, itemName) => this.handleFormChange(event, 'message')}/>
-                  </InputGroup>
-                </FormGroup>
-                <Button type="submit">Submit</Button>
-                  {/*
-                  <div class="form-group"> 
-                      <button class="btn btn-default" ng-click="sendMail()">Send</button>
-                  </div>    
-                */}
-              </form>
-            </Col>
-          </Row>
-        </Grid>
+          <center>
+            <Gmaps
+              width={mapStyle.width}
+              height={mapStyle.height}
+              lat={coords.lat}
+              lng={coords.lng}
+              zoom={12}
+              loadingMessage={'Loading google map now'}
+              params={{v: '3.exp', key: 'AIzaSyA0QyCpYLYV8okMd6M5DUWtiAvExGAj4QQ'}}
+              onMapCreated={this.onMapCreated}>
+              <Marker
+                lat={coords.lat}
+                lng={coords.lng}
+                draggable={true}
+                onDragEnd={this.onDragEnd} />
+              <InfoWindow
+                lat={coords.lat}
+                lng={coords.lng}
+                content={'龍成'}
+                onCloseClick={this.onCloseClick} />
+              <Circle
+                lat={coords.lat}
+                lng={coords.lng}
+                radius={100}
+                onClick={this.onClick} />
+            </Gmaps>
+          </center>
+          <div>
+          <Grid>
+            <Row>
+              <Col xs={18} md={12}>
+                <hr/>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={9} md={6}>
+                <Row>
+                  <Col xs={18} md={12}>
+                    <h4>HOW TO CONTACT US</h4>
+                    <p>Please feel free to contacr us by Email, or leave your message if you have any question.</p>
+                    <p>It is always our great pleasure to serve you anytime!</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={18} md={12}>
+                    <h4>OFFICE</h4>
+                    <p>No.68-23, Aly.254, Ln.222, Sanshu Rd.,Sanxia Dist, New Taipei City 237, Taiwan(R.O.C.)</p>  
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={18} md={12}>
+                    <h4>CONTACT INFO</h4>
+                    <p>Tel: +886-2-26718169</p>
+                    <p>Fax: +886-2-26728519</p>
+                    <p>Email: <a href="maito:uop168@gmail.com">uop168@gmail.com</a></p>
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={9} md={6}>
+                <h4>LEAVE YOUR MESSAGE</h4>
+                {/*<form role="form" novalidate name="emailForm">*/}
+                <form onSubmit={this.handleSubmit}>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroup.Addon>
+                        <Glyphicon glyph="user" />
+                      </InputGroup.Addon>
+                      <FormControl type="text" value={this.state.name} placeholder="Your name" onChange={(event, itemName) => this.handleFormChange(event, 'fullName')}/>
+                    </InputGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroup.Addon>
+                        <Glyphicon glyph="envelope" />
+                      </InputGroup.Addon>
+                      <FormControl type="text" value={this.state.mailto} placeholder="Your email" onChange={(event, itemName) => this.handleFormChange(event, 'email')}/>
+                    </InputGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroup.Addon>
+                        <Glyphicon glyph="pencil" />
+                      </InputGroup.Addon>
+                      <FormControl type="text" value={this.state.subject} placeholder="Subjects" onChange={(event, itemName) => this.handleFormChange(event, 'subject')}/>
+                    </InputGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroup.Addon>
+                        <Glyphicon glyph="edit" />
+                      </InputGroup.Addon>
+                      <FormControl componentClass="textarea" value={this.state.content} placeholder="Your message" style={{height:'150px'}} onChange={(event, itemName) => this.handleFormChange(event, 'message')}/>
+                    </InputGroup>
+                  </FormGroup>
+                  <Button type="submit">Submit</Button>
+                    {/*
+                    <div class="form-group"> 
+                        <button class="btn btn-default" ng-click="sendMail()">Send</button>
+                    </div>    
+                  */}
+                </form>
+              </Col>
+            </Row>
+          </Grid>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (<div>&nbsp;</div>);
+    }
   };
 
 }

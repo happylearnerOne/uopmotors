@@ -21,6 +21,7 @@ class TabHeader extends Component {
 			value: "Company"
 		}
 		this.handleTabChange = this.handleTabChange.bind(this);
+		this.renderContent = this.renderContent.bind(this);
 	}
 
 	handleTabChange = (value) => {
@@ -29,22 +30,39 @@ class TabHeader extends Component {
 		});
 	}
 
+	renderContent = () => {
+		console.log("in renderContent");
+		console.log(this.state.value);
+		switch(this.state.value){
+			case "Company" : 
+				return (<Company />);
+			case "AboutUs" : 
+				return (<AboutUs />);
+			case "Products" : 
+				return (<div> product </div>);
+			case "ContactUs" : 
+				return (<div> contactus </div>);
+			default: 
+				return <Company />;
+		}
+	}
+
 	render() {
 		var initialCenter = { lng: -90.1056957, lat: 29.9717272 }
 
 		return(
 			<Tabs value={this.state.value} onChange={this.handleTabChange}>
 				<Tab label="UOP Motors" value="Company">
-		            <Company />
+		            <Company activeTab={this.state.value}/>
 				</Tab>
 				<Tab label="關於我們&nbsp;About Us" value="AboutUs">
-					<AboutUs />
+					<AboutUs activeTab={this.state.value}/>
 				</Tab>
 				<Tab label="產品&nbsp;Products" value="Products">
-					<ProductLayoutTab />
+					<ProductLayoutTab activeTab={this.state.value}/>
 				</Tab>
 				<Tab label="與我們聯繫&nbsp;Contact Us" value="ContactUs">
-					<ContactUs/>
+					<ContactUs activeTab={this.state.value}/>
 				</Tab>								
 			</Tabs>
 		);

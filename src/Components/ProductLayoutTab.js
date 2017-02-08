@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import myProduct from '../data/productTest';
+import myProduct from '../data/productData';
 import ProductContent from  './ProductContent';
 import Checkbox from 'material-ui/Checkbox';
 
@@ -11,13 +11,15 @@ class ProductLayoutTab extends Component {
 		console.log("ProductLayoutTab init");
 		this.state = {
       products: myProduct,
-      ClassMotor: [],
+      New: [],
+      LightweightBike: [],
       Scooter: [],
       Motorcycle: [],
       OtherProds: [],
       displayProds: myProduct,
-      isClassMotor: true,
+      isNew: true,
       isScooter: true,
+      isLightweightBike: true,
       isMotorcycle: true,
       isOthers: true
     };
@@ -28,35 +30,43 @@ class ProductLayoutTab extends Component {
 	}	
 
   componentWillMount = () => {
-    let ClassMotorData = [];
-    let ScooterData = [];
-    let MotorcycleData = [];
-    let OtherProdsData = [];
-    ClassMotorData = this.filterProd("ClassMotor", this.state.products);
-    ScooterData = this.filterProd("Scooter", this.state.products);
-    MotorcycleData = this.filterProd("Motorcycle", this.state.products);
-    OtherProdsData = this.filterProd("Others", this.state.products);
+    let NewProds = []
+    let LightweightBikeProds = [];
+    let ScooterProds = [];
+    let MotorcycleProds = [];
+    let OtherProds = [];
+    NewProds = this.filterProd("New", this.state.products);
+    LightweightBikeProds = this.filterProd("LightweightBike", this.state.products);
+    ScooterProds = this.filterProd("Scooter", this.state.products);
+    MotorcycleProds = this.filterProd("Motorcycle", this.state.products);
+    OtherProds = this.filterProd("Others", this.state.products);
 
-    this.setState({ClassMotor: ClassMotorData, Scooter: ScooterData, Motorcycle: MotorcycleData, OtherProds: OtherProdsData});
+    this.setState({New: NewProds, LightweightBike: LightweightBikeProds, Scooter: ScooterProds, Motorcycle: MotorcycleProds, OtherProds: OtherProds});
   }
 
   handleChange = (event) => {
     console.log(event.target.value);
-    let isClassMotor = this.state.isClassMotor;
+    let isNew = this.state.isNew;
+    let isLightweightBike = this.state.isLightweightBike;
     let isMotorcycle = this.state.isMotorcycle;
     let isScooter = this.state.isScooter;
     let isOthers = this.state.isOthers;
 
     switch(event.target.value){
-      case "ClassMotor":
-        console.log(this.state.ClassMotor);
-        isClassMotor = !isClassMotor;
-        this.setState({isClassMotor: isClassMotor});
+      case "New":
+        console.log(this.state.isNew);
+        isNew = !isNew;
+        this.setState({isNew: isNew});
         break;
       case "Motorcycle":
         console.log(this.state.Motorcycle);
         isMotorcycle = !isMotorcycle;
         this.setState({isMotorcycle: isMotorcycle});
+        break;
+      case "LightweightBike":
+        console.log(this.state.LightweightBike);
+        isLightweightBike = !isLightweightBike;
+        this.setState({isLightweightBike: isLightweightBike});
         break;
       case "Scooter": 
         console.log(this.state.Scooter);
@@ -73,13 +83,12 @@ class ProductLayoutTab extends Component {
     }
 
     let finalProds = [];
-    let v1 = [];
-    let v2 = [];
-    let v3 = [];
-    let v4 = [];
     
-    if(isClassMotor){
-      finalProds = finalProds.concat(this.state.ClassMotor);
+    if(isNew){
+      finalProds = finalProds.concat(this.state.New);
+    }
+    if(isLightweightBike){
+      finalProds = finalProds.concat(this.state.LightweightBike);
     }
     if(isScooter){
       finalProds = finalProds.concat(this.state.Scooter);
@@ -120,34 +129,39 @@ class ProductLayoutTab extends Component {
         marginBottom: 16,
       },
     };
-
-    return (
-      <Grid>
-        <br/>
-        <Row>
-          <Col xs={4} md={3}>
-            <Checkbox label="經典老車(Classic Motors)" style={styles.checkbox} value="ClassMotor" checked={this.state.isClassMotor} onCheck={this.handleChange}/>
-          </Col>
-          <Col xs={4} md={3}>
-            <Checkbox label="摩托車(Scooter)" style={styles.checkbox} value="Scooter" checked={this.state.isScooter} onCheck={this.handleChange}/>
-          </Col>
-          <Col xs={4} md={3}>
-            <Checkbox label="重機(Motorcycle)" style={styles.checkbox} value="Motorcycle" checked={this.state.isMotorcycle} onCheck={this.handleChange}/>
-          </Col>
-          <Col xs={4} md={3}>
-            <Checkbox label="其他(Others)" style={styles.checkbox} value="Others" checked={this.state.isOthers} onCheck={this.handleChange}/>
-          </Col>
-          <Col xs={2} md={0}>&nbsp;</Col>
-        </Row>
-        <Row>
-          {this.state.displayProds.map((prod, index) => (
-            <Col xs={9} md={6} style={colStyle}>
-                <ProductContent prod={prod}/>
+    if(this.props.activeTab === "Products"){
+      return (
+        <Grid>
+          <br/>
+          <Row>
+            <Col xs={3} md={2}>
+              <Checkbox label="新品(New)" style={styles.checkbox} value="New" checked={this.state.isNew} onCheck={this.handleChange}/>
             </Col>
-          ))}
-        </Row>
-      </Grid>
-    );
+            <Col xs={3} md={2}>
+              <Checkbox label="摩托車(Scooters)" style={styles.checkbox} value="Scooter" checked={this.state.isScooter} onCheck={this.handleChange}/>
+            </Col>
+            <Col xs={4} md={3}>
+              <Checkbox label="輕擋車(Lightweight Bikes)" style={styles.checkbox} value="LightweightBike" checked={this.state.isLightweightBike} onCheck={this.handleChange}/>
+            </Col>
+            <Col xs={4} md={3}>
+              <Checkbox label="重機(Motorcycles)" style={styles.checkbox} value="Motorcycle" checked={this.state.isMotorcycle} onCheck={this.handleChange}/>
+            </Col>
+            <Col xs={4} md={2}>
+              <Checkbox label="碳纖維及其他(Others)" style={styles.checkbox} value="Others" checked={this.state.isOthers} onCheck={this.handleChange}/>
+            </Col>
+          </Row>
+          <Row>
+            {this.state.displayProds.map((prod, index) => (
+              <Col xs={9} md={6} style={colStyle}>
+                  <ProductContent prod={prod}/>
+              </Col>
+            ))}
+          </Row>
+        </Grid>
+      );
+    } else {
+      return (<div>&nbsp;</div>);
+    }
 	};
 }
 

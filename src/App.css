@@ -47,3 +47,13 @@
 .UpdatedText {
   color: red;
 }
+
+.carouselNoBackimage {
+  /* background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); */
+
+}
+
+.carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}

@@ -19,6 +19,7 @@ class Company extends Component {
 
 	render(){
 
+		console.log(this.props.activeTab);
 		let theWidth = window.screen.width;
 		// const theHeight = window.screen.availHeight;
 		// const theWidth = document.documentElement.clientWidth;
@@ -33,13 +34,15 @@ class Company extends Component {
             overflow: 'hidden',	
             backgroundSize: 'cover'
 		};
-		
-		return (
-			<div style={divStyle}>
-				<div style={{paddingTop: '45%'}}></div>
-			</div>
-		);
-
+		if(this.props.activeTab === "Company"){
+			return (
+				<div style={divStyle}>
+					<div style={{paddingTop: '45%'}}></div>
+				</div>
+			);
+		} else {
+			return (<div>&nbsp;</div>);
+		}
 
 	};
 }
