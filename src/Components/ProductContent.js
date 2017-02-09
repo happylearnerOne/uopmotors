@@ -173,6 +173,12 @@ class ProductContent extends Component {
 				    <CardText>
 				    	<Table striped bordered={false} condensed hover>
 				    		<thead>
+				    			<tr><td><b>售價</b></td></tr>
+				    		</thead>
+				    		<tbody>
+				    			<tr><td>NTD$ {prod.sale_price} 元</td></tr>
+				    		</tbody>
+				    		<thead>
 				    			<tr>
 				    				<td><b>適用車款</b></td>
 				    			</tr>
