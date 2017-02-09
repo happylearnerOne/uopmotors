@@ -133,7 +133,7 @@ class ProductContent extends Component {
 			paddingTop: (vHeight/30),
 			paddingRight: (vWidth/30),
 			paddingLeft: (vWidth/30),
-			height: '750px'
+			height: '770px'
 		}
 
 		const dialogContentStyle = {
