@@ -12,7 +12,8 @@ const myProduct =
 				"wholesale_price" : [
 					{
 						"qty" : "10",
-						"unitPrice" : "400(滿10送3）"
+						"unitPrice" : "400",
+						"desc" : "(滿10送3)"
 					},
 					{
 						"qty" : "50",
@@ -67,7 +68,8 @@ const myProduct =
 				"wholesale_price" : [
 					{
 						"qty" : "10",
-						"unitPrice" : "400(滿10送3)"
+						"unitPrice" : "400",
+						"desc" : "(滿10送3)"
 					},
 					{
 						"qty" : "50",
@@ -88,11 +90,13 @@ const myProduct =
 				"wholesale_price" : [
 					{
 						"qty" : "10",
-						"unitPrice" : "120(滿10送3)"
+						"unitPrice" : "120",
+						"desc" : "(滿10送3)"
 					},
 					{
 						"qty" : "50",
-						"unitPrice" : "90(滿10送2)"
+						"unitPrice" : "90",
+						"desc" : "(滿10送2)"
 					},
 					{
 						"qty" : "100",
@@ -120,7 +124,7 @@ const myProduct =
 			},
 			{
 				"imageNo" : "3",
-				"imageUrl" : "p2.jpg",
+				"imageUrl" : "p3.jpg",
 				"imageHint" : "圖3-小旋風"
 			}
 		],

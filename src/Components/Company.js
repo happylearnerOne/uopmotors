@@ -34,15 +34,15 @@ class Company extends Component {
             overflow: 'hidden',	
             backgroundSize: 'cover'
 		};
-		if(this.props.activeTab === "Company"){
+		// if(this.props.activeTab === "Company"){
 			return (
 				<div style={divStyle}>
 					<div style={{paddingTop: '45%'}}></div>
 				</div>
 			);
-		} else {
-			return (<div>&nbsp;</div>);
-		}
+		// } else {
+			// return (<div>&nbsp;</div>);
+		// }
 
 	};
 }

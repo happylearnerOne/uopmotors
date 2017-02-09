@@ -20,8 +20,9 @@ class App extends Component {
           <IndexRoute component={Company}/>
           <Route name="product" path="/product" component={ProductLayout} />
           <Route name="productMenu" path="/productMenu" component={ProductLayoutMenu} />
-          <Route name="classicmotors" path="/classic" component={ProductLayoutMenu} />
+          <Route name="new" path="/new" component={ProductLayoutMenu} />
           <Route name="scootors" path="/scootor" component={ProductLayoutMenu} />
+          <Route name="lightWeightBike" path="/lightWeightBike" component={ProductLayoutMenu} />
           <Route name="motorcycle" path="/motorcycle" component={ProductLayoutMenu} />
           <Route name="othres" path="/others" component={ProductLayoutMenu} />
           <Route name="company" path="/company" component={Company} />

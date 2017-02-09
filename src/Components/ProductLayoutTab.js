@@ -153,7 +153,7 @@ class ProductLayoutTab extends Component {
           <Row>
             {this.state.displayProds.map((prod, index) => (
               <Col xs={9} md={6} style={colStyle}>
-                  <ProductContent prod={prod}/>
+                  <ProductContent prod={prod} srcType="Tab"/>
               </Col>
             ))}
           </Row>

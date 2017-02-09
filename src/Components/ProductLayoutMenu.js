@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ProductContent from './ProductContent';
-import myProduct from '../data/productTest';
+import myProduct from '../data/productData';
 
 class ProductLayoutMenu extends Component {
 
@@ -30,8 +30,11 @@ class ProductLayoutMenu extends Component {
 		// console.log(nextProps);
 		let displayProd = this.state.displayProd;
 		switch(this.props.location.pathname){
-			case "/classic":
-				displayProd = this.filterProd("ClassMotor", this.state.products);
+			case "/new":
+				displayProd = this.filterProd("New", this.state.products);
+				break;
+			case "/lightWeightBike":
+				displayProd = this.filterProd("LightWeightBike", this.state.products);
 				break;
 			case "/scootor":
 				displayProd = this.filterProd("Scooter", this.state.products);
@@ -55,7 +58,7 @@ class ProductLayoutMenu extends Component {
 		return (
 			<div>
 			{this.state.displayProd.map((prod, index) => (
-                <ProductContent prod={prod}/>
+                <ProductContent prod={prod} srcType="Menu"/>
             ))}
             </div>
 		);
