@@ -12,14 +12,14 @@ class ProductLayoutTab extends Component {
 		this.state = {
       products: myProduct,
       New: [],
-      LightweightBike: [],
+      LightWeightBike: [],
       Scooter: [],
       Motorcycle: [],
       OtherProds: [],
       displayProds: myProduct,
       isNew: true,
       isScooter: true,
-      isLightweightBike: true,
+      isLightWeightBike: true,
       isMotorcycle: true,
       isOthers: true
     };
@@ -31,23 +31,23 @@ class ProductLayoutTab extends Component {
 
   componentWillMount = () => {
     let NewProds = []
-    let LightweightBikeProds = [];
+    let LightWeightBikeProds = [];
     let ScooterProds = [];
     let MotorcycleProds = [];
     let OtherProds = [];
     NewProds = this.filterProd("New", this.state.products);
-    LightweightBikeProds = this.filterProd("LightweightBike", this.state.products);
+    LightWeightBikeProds = this.filterProd("LightWeightBike", this.state.products);
     ScooterProds = this.filterProd("Scooter", this.state.products);
     MotorcycleProds = this.filterProd("Motorcycle", this.state.products);
     OtherProds = this.filterProd("Others", this.state.products);
 
-    this.setState({New: NewProds, LightweightBike: LightweightBikeProds, Scooter: ScooterProds, Motorcycle: MotorcycleProds, OtherProds: OtherProds});
+    this.setState({New: NewProds, LightWeightBike: LightWeightBikeProds, Scooter: ScooterProds, Motorcycle: MotorcycleProds, OtherProds: OtherProds});
   }
 
   handleChange = (event) => {
     console.log(event.target.value);
     let isNew = this.state.isNew;
-    let isLightweightBike = this.state.isLightweightBike;
+    let isLightWeightBike = this.state.isLightWeightBike;
     let isMotorcycle = this.state.isMotorcycle;
     let isScooter = this.state.isScooter;
     let isOthers = this.state.isOthers;
@@ -63,10 +63,10 @@ class ProductLayoutTab extends Component {
         isMotorcycle = !isMotorcycle;
         this.setState({isMotorcycle: isMotorcycle});
         break;
-      case "LightweightBike":
-        console.log(this.state.LightweightBike);
-        isLightweightBike = !isLightweightBike;
-        this.setState({isLightweightBike: isLightweightBike});
+      case "LightWeightBike":
+        console.log(this.state.LightWeightBike);
+        isLightWeightBike = !isLightWeightBike;
+        this.setState({isLightWeightBike: isLightWeightBike});
         break;
       case "Scooter": 
         console.log(this.state.Scooter);
@@ -87,8 +87,8 @@ class ProductLayoutTab extends Component {
     if(isNew){
       finalProds = finalProds.concat(this.state.New);
     }
-    if(isLightweightBike){
-      finalProds = finalProds.concat(this.state.LightweightBike);
+    if(isLightWeightBike){
+      finalProds = finalProds.concat(this.state.LightWeightBike);
     }
     if(isScooter){
       finalProds = finalProds.concat(this.state.Scooter);
@@ -141,7 +141,7 @@ class ProductLayoutTab extends Component {
               <Checkbox label="摩托車(Scooters)" style={styles.checkbox} value="Scooter" checked={this.state.isScooter} onCheck={this.handleChange}/>
             </Col>
             <Col xs={4} md={3}>
-              <Checkbox label="輕擋車(Lightweight Bikes)" style={styles.checkbox} value="LightweightBike" checked={this.state.isLightweightBike} onCheck={this.handleChange}/>
+              <Checkbox label="輕擋車(Lightweight Bikes)" style={styles.checkbox} value="LightWeightBike" checked={this.state.isLightWeightBike} onCheck={this.handleChange}/>
             </Col>
             <Col xs={4} md={3}>
               <Checkbox label="重機(Motorcycles)" style={styles.checkbox} value="Motorcycle" checked={this.state.isMotorcycle} onCheck={this.handleChange}/>

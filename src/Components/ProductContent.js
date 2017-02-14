@@ -10,10 +10,12 @@ import '../App.css';
 // import { browserHistory, push } from 'react-router';
 		const vHeight = window.screen.height;
 		const vWidth = window.screen.width;
+		/*
 		const tableColumnStyle = {
 			paddingLeft: (vWidth >= 768 ? '15px' : '0px'),
 			paddingRight: (vWidth >= 768 ? '15px' : '0px')
 		}
+		*/
 
 
 class ProductContent extends Component {
@@ -29,6 +31,9 @@ class ProductContent extends Component {
 		this.renderDescriptionContent = this.renderDescriptionContent.bind(this);
 		this.renderTableRowContent = this.renderTableRowContent.bind(this);
 		this.renderPriceDescContent = this.renderPriceDescContent.bind(this);
+		this.renderModelContentDetail = this.renderModelContentDetail.bind(this);
+		this.renderSalePriceContent = this.renderSalePriceContent.bind(this);
+		this.renderSalePriceContentDetail = this.renderSalePriceContentDetail.bind(this);
 		// console.log(props);
 	}
 
@@ -41,6 +46,7 @@ class ProductContent extends Component {
     	this.setState({dialogOpen: false});
   	};
 
+  	/*
   	renderModelContent = (theModel, lang) => {
   		if(lang === "en"){
   			return (
@@ -51,6 +57,77 @@ class ProductContent extends Component {
   				<div>{theModel.m_ch}<br/></div>
   			);
   		}
+  	}
+  	*/
+
+  	
+	renderModelContentDetail = (tModel) => {
+		switch(tModel.display_type){
+			case "ALL" : 
+				return (
+					<div>{tModel.model}</div>
+				);
+				break;
+			case "BY_TYPE" : 
+				return (
+					<Table striped={true} bordered={false} condensed hover={false} style={{marginBottom: '2px'}}>
+  					<tbody>
+  						<tr><td colspan={2}><b>{tModel.motor_system}</b></td></tr>
+  						<tr><td colspan={2}>&nbsp;&nbsp;{tModel.model}</td></tr>
+  					</tbody>
+					</Table>
+				);
+			case "BY_TYPE_VENDOR" : 
+				return (
+					<Table striped={true} bordered={false} condensed hover={false} style={{marginBottom: '2px'}}>
+						<tbody>
+						<tr><td colspan={2}><b>{tModel.motor_system}</b></td></tr>
+						{tModel.model.map((dModel)=>(
+							<tr><td colspan={2}>&nbsp;&nbsp;<b>{dModel.vendor}</b>: {dModel.model}</td></tr>
+						))}
+						</tbody>
+					</Table>
+				);
+			default : 
+				return (
+					<div>aa</div>
+				);
+		} 	
+	}
+  	renderModelContent = (theModel, displayModelInDetail, isDetailPage) => {
+  		console.log("the isDetailPage=" + isDetailPage);
+  		console.log("the displayModelInDetail=" + displayModelInDetail);
+  		if(isDetailPage===false && displayModelInDetail === "true"){
+  			return (
+  				<div>請參閱詳細資訊</div>
+  			);
+  		} else if(isDetailPage===true && displayModelInDetail === "true"){
+  			console.log("i am in detail page");
+  			
+  			return (
+  				<Table>
+  					<thead>
+  						<tr><td colspan={2}><b>適用車款</b></td></tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td colspan={2}>
+  								{theModel.map((dModel, index)=>(
+  									this.renderModelContentDetail(dModel)
+  								))}
+  							</td>
+  						</tr>
+  					</tbody>
+  				</Table>
+  			);
+  			
+  		} else {
+  			console.log("i am in else");
+  			return (
+				this.renderModelContentDetail(theModel)
+			);
+  		}
+
   	}
   	renderDescriptionContent = (theDesc) => {
   		console.log(theDesc);
@@ -76,6 +153,46 @@ class ProductContent extends Component {
   		if(theDesc !== undefined){
   			return ( 
   				<font size="-2"><br/>{theDesc}</font>
+  			);
+  		}
+  	}
+
+  	renderSalePriceContent = (priceObj) => {
+  		console.log("in renderSalePriceContent");
+  		console.log(priceObj.length);
+  		if(priceObj.length >= 0){
+  			switch(priceObj.length){
+  				case 1 :
+  					return ( 
+  						this.renderSalePriceContentDetail(priceObj[0]) 
+  					);
+  					break;
+  				default :
+  					return (
+  						<tr>	
+	  						<Table striped={false} bordered={false} condensed hover={false} style={{marginBottom: '2px'}}>
+		  						<tbody>
+			  						{priceObj.map((dPrice, index)=>(
+			  							this.renderSalePriceContentDetail(dPrice)
+			  						))}
+		  						</tbody>
+	  						</Table>
+  						</tr>
+  					);
+  					
+  					break;
+  			}
+  		}
+  	}
+
+  	renderSalePriceContentDetail = (thePrice) => {
+  		if(thePrice.item === undefined){
+  			return (
+  				<tr><td colspan="2">{thePrice.currencyTW} {thePrice.priceTW} 元</td></tr>
+  			);
+  		} else {
+  			return (
+  				<tr><td width="70%">{thePrice.item}</td><td>{thePrice.currencyTW} {thePrice.priceTW} 元</td></tr>
   			);
   		}
   	}
@@ -133,14 +250,14 @@ class ProductContent extends Component {
 			paddingTop: (vHeight/30),
 			paddingRight: (vWidth/30),
 			paddingLeft: (vWidth/30),
-			height: '770px'
+			height: '800px'
 		}
 
 		const dialogContentStyle = {
 			width: '90%',
 			maxWidth: 'none',
 		};
-
+		/*
 		const tdStyle = {
 			whiteSpace: "normal",
 			verticalAlign: "text-top",
@@ -151,6 +268,7 @@ class ProductContent extends Component {
 		const tableWidth = {
 			width: (vWidth >= 768 ? '80%' : '100%')
 		}
+		*/
 
 
 //style={{paddingLeft:'6px', paddingRight:'6px'}}
@@ -172,21 +290,23 @@ class ProductContent extends Component {
 	    			<CardTitle title={prod.name_ch} />
 				    <CardText>
 				    	<Table striped bordered={false} condensed hover>
-				    		<thead>
-				    			<tr><td><b>售價</b></td></tr>
-				    		</thead>
 				    		<tbody>
-				    			<tr><td>NTD$ {prod.sale_price} 元</td></tr>
-				    		</tbody>
-				    		<thead>
+				    			<tr><td colspan="2"><b>售價</b></td></tr>
+				    		
+				    			{/*<tr><td>NTD$ {prod.sale_price} 元</td></tr>*/}
+				    			{this.renderSalePriceContent(prod.sale_price)}
+				    		
+				    			<tr><td colspan="2"><b>適用車款</b></td></tr>
 				    			<tr>
-				    				<td><b>適用車款</b></td>
-				    			</tr>
-				    		</thead>
-				    		<tbody>
-				    			<tr>
-				    				<td>
-				    					{prod.suitable_model}
+				    				<td colspan="2">
+										{
+											prod.displayModelInDetail === "true" ? "請參閱詳細內容" : 
+											prod.suitable_model.map((theModel, index)=>(
+				    							this.renderModelContent(theModel, prod.displayModelInDetail, false)
+				    						))
+										}				    				
+				    					
+				    					{/* prod.suitable_model */}
 				    					{/* 
 										{model.map((theModel, index) => (
 											this.renderModelContent(theModel, "ch")
@@ -194,13 +314,9 @@ class ProductContent extends Component {
 										*/}
 				    				</td>
 				    			</tr>
-				    		</tbody>
-				    		<thead>
-				    			<tr><td><b>說明</b></td></tr>
-				    		</thead>
-				    		<tbody>
+				    			<tr><td colspan="2"><b>說明</b></td></tr>
 				    			<tr>
-				    				<td>
+				    				<td colspan="2">
 				    					{prod.description.map((theDesc, index) => (
 											this.renderDescriptionContent(theDesc)
 										))}
@@ -208,20 +324,24 @@ class ProductContent extends Component {
 				    			</tr>
 				    		</tbody>
 						</Table>			 
-				    	<br/>
+				    	
 				    	<RaisedButton label="詳細內容 Details" onTouchTap={this.handleDialogOpen} />
 				    	
 				    </CardText>   
 	  			</Card>
 		        <Dialog
-		          title="批發價"
+		          title="詳細內容"
 		          actions={actions}
 		          modal={true}
 		          contentStyle={dialogContentStyle} 
 		          open={this.state.dialogOpen}
 		          autoScrollBodyContent={true}
 		        >
-		        	<br/>台幣計價, 不含運費: <br/>
+		        	{
+		        		prod.displayModelInDetail === "true" ? 
+		        			this.renderModelContent(prod.suitable_model, prod.displayModelInDetail, true) : ""
+		        	}
+		        	<b>批發價-台幣計價, 不含運費:</b><br/>
 		        	<Table striped bordered condensed hover={false}>
 		        		<thead>
 		        			<tr>
@@ -238,7 +358,6 @@ class ProductContent extends Component {
 			    			))}
 		        		</tbody>
 		        	</Table>
-
 		        </Dialog>
   			</div>
 		);

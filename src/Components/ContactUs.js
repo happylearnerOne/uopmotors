@@ -110,31 +110,36 @@ class ContactUs extends Component {
               </Col>
             </Row>
             <Row>
-              <Col xs={9} md={6}>
+              <Col xs={9} md={6} style={{height:'620px'}}>
                 <Row>
                   <Col xs={18} md={12}>
-                    <h4>HOW TO CONTACT US</h4>
+                    <h4>HOW TO CONTACT US 如何聯絡我們</h4>
                     <p>Please feel free to contacr us by Email, or leave your message if you have any question.</p>
                     <p>It is always our great pleasure to serve you anytime!</p>
+                    <p>如果您有任何問題，歡迎您Email或留言給我們！</p>
+                    <p>我們很高興能有這個機會為您服務！</p>
                   </Col>
                 </Row>
                 <Row>
                   <Col xs={18} md={12}>
-                    <h4>OFFICE</h4>
-                    <p>No.68-23, Aly.254, Ln.222, Sanshu Rd.,Sanxia Dist, New Taipei City 237, Taiwan(R.O.C.)</p>  
+                    <h4>OFFICE 公司地址</h4>
+                    <p>No.68-23, Aly.254, Ln.222, Sanshu Rd.,Sanxia Dist, New Taipei City 237, Taiwan(R.O.C.)</p>
+                    <p>新北市三峽區三樹路222巷254弄68-23號</p>      
                   </Col>
                 </Row>
                 <Row>
                   <Col xs={18} md={12}>
-                    <h4>CONTACT INFO</h4>
+                    <h4>CONTACT INFO 聯絡方式</h4>
                     <p>Tel: +886-2-26718169</p>
                     <p>Fax: +886-2-26728519</p>
+                    <p>電話: 02-26718169</p>
+                    <p>傳真: 02-26728519</p>
                     <p>Email: <a href="maito:uop168@gmail.com">uop168@gmail.com</a></p>
                   </Col>
                 </Row>
               </Col>
               <Col xs={9} md={6}>
-                <h4>LEAVE YOUR MESSAGE</h4>
+                <h4>LEAVE YOUR MESSAGE 您的留言</h4>
                 {/*<form role="form" novalidate name="emailForm">*/}
                 <form onSubmit={this.handleSubmit}>
                   <FormGroup>
@@ -142,7 +147,7 @@ class ContactUs extends Component {
                       <InputGroup.Addon>
                         <Glyphicon glyph="user" />
                       </InputGroup.Addon>
-                      <FormControl type="text" value={this.state.name} placeholder="Your name" onChange={(event, itemName) => this.handleFormChange(event, 'fullName')}/>
+                      <FormControl type="text" value={this.state.name} placeholder="Your name 您的姓名" onChange={(event, itemName) => this.handleFormChange(event, 'fullName')}/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -150,7 +155,7 @@ class ContactUs extends Component {
                       <InputGroup.Addon>
                         <Glyphicon glyph="envelope" />
                       </InputGroup.Addon>
-                      <FormControl type="text" value={this.state.mailto} placeholder="Your email" onChange={(event, itemName) => this.handleFormChange(event, 'email')}/>
+                      <FormControl type="text" value={this.state.mailto} placeholder="Your email 您的電子郵件" onChange={(event, itemName) => this.handleFormChange(event, 'email')}/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -158,7 +163,7 @@ class ContactUs extends Component {
                       <InputGroup.Addon>
                         <Glyphicon glyph="pencil" />
                       </InputGroup.Addon>
-                      <FormControl type="text" value={this.state.subject} placeholder="Subjects" onChange={(event, itemName) => this.handleFormChange(event, 'subject')}/>
+                      <FormControl type="text" value={this.state.subject} placeholder="Subjects 留言主旨" onChange={(event, itemName) => this.handleFormChange(event, 'subject')}/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -166,10 +171,10 @@ class ContactUs extends Component {
                       <InputGroup.Addon>
                         <Glyphicon glyph="edit" />
                       </InputGroup.Addon>
-                      <FormControl componentClass="textarea" value={this.state.content} placeholder="Your message" style={{height:'150px'}} onChange={(event, itemName) => this.handleFormChange(event, 'message')}/>
+                      <FormControl componentClass="textarea" value={this.state.content} placeholder="Your message 留言內容" style={{height:'150px'}} onChange={(event, itemName) => this.handleFormChange(event, 'message')}/>
                     </InputGroup>
                   </FormGroup>
-                  <Button type="submit">Submit</Button>
+                  <Button type="submit">Submit 送出</Button>
                     {/*
                     <div class="form-group"> 
                         <button class="btn btn-default" ng-click="sendMail()">Send</button>
