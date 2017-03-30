@@ -46,7 +46,7 @@ class ProductLayoutMenu extends Component {
 				displayProd = this.filterProd("Others", this.state.products);
 				break;
 			default:
-				displayProd = this.state.displayProd;
+				displayProd = this.state.products;
 				break;
 		}
 		this.setState({displayProd: displayProd});		

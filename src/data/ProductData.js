@@ -100,7 +100,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "100"
 					}
-				],
+				]
 			},
 			{
 				"item" : "彩鈦飾蓋",
@@ -117,7 +117,7 @@ const myProduct =
 					},
 					{
 						"qty" : "100",
-						"unitPrice" : "60",
+						"unitPrice" : "60"
 					},
 					{
 						"qty" : "500",
@@ -195,7 +195,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "100"
 					}
-				],
+				]
 			},
 			{
 				"item" : "彩鈦飾蓋",
@@ -297,7 +297,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "100"
 					}
-				],
+				]
 			}
 		],
 		"imageDirectory" : "styles/image/product/carbon_cooling_fan/",
@@ -429,7 +429,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "11,000"
 					}
-				],
+				]
 			},
 			{
 				"item" : "前齒18T+後齒(41T/43T擇一)",
@@ -450,7 +450,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "12,000"
 					}
-				],
+				]
 			}		
 		],
 		"orderSeq" : "5",
@@ -521,7 +521,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "140"
 					}
-				],
+				]
 			}	
 		],
 		"orderSeq" : "6",
@@ -629,7 +629,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "1500"
 					}
-				],
+				]
 			},
 			{
 				"item" : "小盾牌+彩殼小燈",
@@ -650,7 +650,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "1750"
 					}
-				],
+				]
 			}		
 		],
 		"orderSeq" : "7",
@@ -727,7 +727,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "1680"
 					}
-				],
+				]
 			}		
 		],
 		"orderSeq" : "8",
@@ -786,7 +786,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "1680"
 					}
-				],
+				]
 			},
 			{	
 				"item" : "後雙避震車種專用",
@@ -807,7 +807,7 @@ const myProduct =
 						"qty" : "500",
 						"unitPrice" : "1580"
 					}
-				],
+				]
 			}						
 		],
 		"orderSeq" : "9",

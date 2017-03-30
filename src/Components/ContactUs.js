@@ -5,7 +5,8 @@ import { Grid, Row, Col, FormGroup, FormControl, Button, Glyphicon, InputGroup }
 import Divider from 'material-ui/Divider';
 import * as SendMailApi from '../api/sendMail';
 
-
+let activeThisTab = false;
+let activeThisMenu = false;
 
 class ContactUs extends Component {
   constructor(props){
@@ -61,6 +62,24 @@ class ContactUs extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    if(typeof nextProps.location === 'undefined'){
+      if(nextProps.activeTab === 'ContactUs'){
+        activeThisTab = true;
+      }
+    }
+    else if(typeof nextProps.activeTab === 'undefined'){
+      if(nextProps.location.pathname === '/contactus'){
+        activeThisMenu = true;
+      }
+    } else {
+      activeThisMenu = false;
+      activeThisTab = false;
+    }
+  }
+
+
+
 
   render(){
     const coords = {
@@ -72,7 +91,8 @@ class ContactUs extends Component {
       width: '80%',
       height: '300px'
     }
-    if(this.props.activeTab === "ContactUs"){
+
+    if(activeThisMenu || activeThisTab){
       return(
         <div>
           <center>
@@ -93,7 +113,7 @@ class ContactUs extends Component {
               <InfoWindow
                 lat={coords.lat}
                 lng={coords.lng}
-                content={'龍成'}
+                content={'UOP Motors'}
                 onCloseClick={this.onCloseClick} />
               <Circle
                 lat={coords.lat}
@@ -110,25 +130,30 @@ class ContactUs extends Component {
               </Col>
             </Row>
             <Row>
-              <Col xs={9} md={6} style={{height:'620px'}}>
+              <Col xs={12} md={6} style={{height:'640px'}}>
                 <Row>
-                  <Col xs={18} md={12}>
+                  
+                  <Col xs={17} md={12}>
                     <h4>HOW TO CONTACT US 如何聯絡我們</h4>
                     <p>Please feel free to contacr us by Email, or leave your message if you have any question.</p>
                     <p>It is always our great pleasure to serve you anytime!</p>
                     <p>如果您有任何問題，歡迎您Email或留言給我們！</p>
                     <p>我們很高興能有這個機會為您服務！</p>
                   </Col>
+                  
                 </Row>
                 <Row>
-                  <Col xs={18} md={12}>
+                  
+                  <Col xs={17} md={12}>
                     <h4>OFFICE 公司地址</h4>
                     <p>No.68-23, Aly.254, Ln.222, Sanshu Rd.,Sanxia Dist, New Taipei City 237, Taiwan(R.O.C.)</p>
                     <p>新北市三峽區三樹路222巷254弄68-23號</p>      
                   </Col>
+                  
                 </Row>
                 <Row>
-                  <Col xs={18} md={12}>
+                 
+                  <Col xs={17} md={12}>
                     <h4>CONTACT INFO 聯絡方式</h4>
                     <p>Tel: +886-2-26718169</p>
                     <p>Fax: +886-2-26728519</p>
@@ -136,9 +161,10 @@ class ContactUs extends Component {
                     <p>傳真: 02-26728519</p>
                     <p>Email: <a href="maito:uop168@gmail.com">uop168@gmail.com</a></p>
                   </Col>
+                  
                 </Row>
               </Col>
-              <Col xs={9} md={6}>
+              <Col xs={12} md={6}>
                 <h4>LEAVE YOUR MESSAGE 您的留言</h4>
                 {/*<form role="form" novalidate name="emailForm">*/}
                 <form onSubmit={this.handleSubmit}>
@@ -186,12 +212,13 @@ class ContactUs extends Component {
           </Grid>
           </div>
         </div>
-      );
+      ); 
     } else {
-      return (<div>&nbsp;</div>);
+      return (
+        <div>something go wrong!</div>
+      );
     }
   };
-
 }
 
 export default ContactUs;

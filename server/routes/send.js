@@ -29,8 +29,8 @@ router.post('/postEmail', function(req, res) {
 	console.log(req.body);
 	var mailOptions = {
 		from : req.body.mailto,
-		to : "fylin.unipattern@gmail.com, fylin92@gmail.com",
-		subject : req.body.subject,
+		to : "fylin.unipattern@gmail.com, fylin92@gmail.com, uopmail168@gmail.com",
+		subject : "由www.uopmotors.com聯絡我送出訊息: " + req.body.subject,
 		html : "寄件者email：" + req.body.mailto+"<BR/>" + 
 			   "訊息內容：" + req.body.content
 	}

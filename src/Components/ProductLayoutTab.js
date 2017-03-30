@@ -123,7 +123,7 @@ class ProductLayoutTab extends Component {
 
     const styles = {
       block: {
-      maxWidth: 250,
+        maxWidth: 250,
       },
       checkbox: {
         marginBottom: 16,

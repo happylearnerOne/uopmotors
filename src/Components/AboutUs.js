@@ -5,16 +5,34 @@ import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 // import FlatButton from 'material-ui/FlatButton';
 import { Grid, Row, Col} from 'react-bootstrap';
 
-
+let activeThisMenu = false;
+let activeThisTab = false;
 
 class AboutUs extends Component {
 	constructor(props){
 		super(props);
 		console.log("AboutUs init");
 	}
+
+	componentWillReceiveProps(nextProps){
+		if(typeof nextProps.location === 'undefined'){
+			if(nextProps.activeTab === 'AboutUs'){
+				activeThisTab = true;
+			}
+		}
+		else if(typeof nextProps.activeTab === 'undefined'){
+			if(nextProps.location.pathname === '/aboutus'){
+				activeThisMenu = true;
+			}
+		} else {
+			activeThisMenu = false;
+			activeThisTab = false;
+		}
+	}
+
 	render(){
 		console.log(this.props.activeTab);
-		if(this.props.activeTab === "AboutUs"){
+		if(activeThisMenu || activeThisTab){
 			return (
 				<Grid>
 					<Row className="show-grid">
@@ -58,7 +76,7 @@ class AboutUs extends Component {
 				</Grid>
 			);
 		} else {
-			return (<div>&nbsp;</div>);
+			return (<div>something go wrong!</div>);
 		}
 	};
 }

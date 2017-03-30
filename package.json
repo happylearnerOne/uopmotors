@@ -24,6 +24,7 @@
     "react-swipeable-views": "^0.7.11"
   },
   "scripts": {
+    "foreverStart" : "npm start",
     "server": "react-scripts start",
     "start": "node ./server/server.js",
     "build": "react-scripts build",

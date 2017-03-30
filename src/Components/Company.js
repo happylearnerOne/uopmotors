@@ -9,6 +9,7 @@ import 'react-responsive-carousel/lib/styles/carousel.css';
 
 // import { Grid, Row, Col } from 'react-bootstrap';
 import RaisedButton from 'material-ui/RaisedButton';
+import '../App.css';
 
 
 class Company extends Component {
@@ -18,14 +19,13 @@ class Company extends Component {
 	}
 
 	render(){
-
 		console.log(this.props.activeTab);
 		let theWidth = window.screen.width;
 		// const theHeight = window.screen.availHeight;
 		// const theWidth = document.documentElement.clientWidth;
 		let theHeight = document.documentElement.clientHeight;
 		const divStyle = {
-  			backgroundImage: 'url(images/background-img10.jpg)',
+  			backgroundImage: (theWidth >= 768 ? 'url(images/background-img10.jpg)' : 'url(images/background-img10-s.jpg)'),
   			width: '100%',
   			height: theHeight,
 			backgroundRepeat: 'no-repeat',
@@ -34,12 +34,44 @@ class Company extends Component {
             overflow: 'hidden',	
             backgroundSize: 'cover'
 		};
+
+
+
 		// if(this.props.activeTab === "Company"){
+			/*
 			return (
 				<div style={divStyle}>
 					<div style={{paddingTop: '45%'}}></div>
 				</div>
 			);
+			*/
+			return (
+<div style={divStyle}>		
+<div className="wrapper" onclick="">
+    <div className="page">
+        <div className="imageMap" aria-haspopup="true">
+            <div className="hotspots">
+                <div><a href="http://www.google.com.tw/" className="p1" rel="nofollow" title="Google" target="_blank"></a>
+                </div>
+                <div><a href="http://tw.yahoo.com/" className="p2" rel="nofollow" title="Yahoo" target="_blank"></a>
+                </div>
+                <div><a href="http://www.pchome.com.tw/" className="p3" rel="nofollow" title="Pchome" target="_blank"></a>
+                </div>
+                <div><a href="http://www.hncb.com.tw/" className="p4" rel="nofollow" title="華南銀行" target="_blank"></a>
+                </div>
+                <div><a href="http://edition.cnn.com/" className="p5" rel="nofollow" title="CNN" target="_blank"></a>
+                </div>
+                <div><a href="http://www.bbc.co.uk/news" className="p6" rel="nofollow" title="BBC" target="_blank"></a>
+                </div>
+
+             </div>
+         </div>
+    </div>
+</div>
+</div>				
+			);
+
+
 		// } else {
 			// return (<div>&nbsp;</div>);
 		// }
