@@ -12,10 +12,8 @@ nodemailer.SMTP = {
 	host: "smtp.gmail.com",
 	port: "465",
 	ssl: true,
-	//user: "hung@unipattern.com",
-	//pass: "Baker1960",
-	user: "uopmail168@gmail.com",
-	pass: "money28917398",
+	user: "email@gmail.com",
+	pass: "password",
 	use_authentication: true
 }
 
@@ -29,7 +27,7 @@ router.post('/postEmail', function(req, res) {
 	console.log(req.body);
 	var mailOptions = {
 		from : req.body.mailto,
-		to : "fylin.unipattern@gmail.com, fylin92@gmail.com, uopmail168@gmail.com",
+		to : "email@gmail.com",
 		subject : "由www.uopmotors.com聯絡我送出訊息: " + req.body.subject,
 		html : "寄件者email：" + req.body.mailto+"<BR/>" + 
 			   "訊息內容：" + req.body.content
